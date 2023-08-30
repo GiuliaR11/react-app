@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.button {
+  background-color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+.tablinks {
+  margin: 1rem;
+}
+
+.tab-container {
+  border: 1px solid rgb(185, 212, 228);
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

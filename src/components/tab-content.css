@@ -1,0 +1,21 @@
+.tab-card {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+  background-color: aliceblue;
+  height: 30%;
+  width: 10rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.tab-card:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.tab-card-active {
+  background-color: #b0b0b0;
+  cursor: pointer;
+}
