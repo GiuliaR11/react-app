@@ -14,7 +14,7 @@ const PAGES = {
 function App() {
   const [selectedPage, setSelectedPage] = useState(PAGES.ALPHA)
   const [totalAlpha, setTotalAlpha] = useState(0)
-  const [totalBeta, setTotalBeta] = useState(0)
+  const [totalBeta, setTotalBeta] = useState('')
 
   const updateContextValue = (value) => {
     setSelectedPage(value)

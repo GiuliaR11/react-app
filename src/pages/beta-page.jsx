@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './alpha-page.css'
-import TabsContainer from '../components/tabs-container'
 import { createContext } from "react";
 import { useContext } from "react";
 import {TABS} from '../utils/models'
 import { AppContext } from '../App';
+import BetaTabsContainer from '../components/beta-tabs-container';
 
 export const BetaPageCtx = createContext();
 
@@ -18,7 +18,7 @@ function BetaPage() {
   const ctxToProvide = {
     total: totalBeta,
     updateTotal: updateBetaTotal,
-    selectedTab
+    selectedTab,
   }
 
   return (
@@ -34,7 +34,7 @@ function BetaPage() {
           <button className="tablinks" onClick={() => setSelectedTab(TABS.TAB2)}>{TABS.TAB2}</button>
           <button className="tablinks" onClick={() => setSelectedTab(TABS.TAB3)}>{TABS.TAB3}</button>
         </div>
-        <TabsContainer ctx={BetaPageCtx}/>
+        <BetaTabsContainer/>
       </BetaPageCtx.Provider>
     </>
   );
