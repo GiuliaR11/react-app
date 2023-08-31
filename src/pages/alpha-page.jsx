@@ -10,20 +10,14 @@ export const AlphaPageCtx = createContext();
 
 function AlphaPage() {
   const appContext = useContext(AppContext);
+  const {alpha} = appContext
+  const {totalAlpha} = alpha
 
   const [selectedTab, setSelectedTab] = useState(TABS.TAB1)
 
-  const {totalAlpha, updateAlphaTotal} = appContext
-
-  const ctxToProvide = {
-    total: totalAlpha,
-    updateTotal: updateAlphaTotal,
-    selectedTab
-  }
-
   return (
     <>
-      <AlphaPageCtx.Provider value={ctxToProvide}>
+      <AlphaPageCtx.Provider value={{selectedTab}}>
         <div className="header">
           <h1>ALPHA</h1>
           <h3>Total: {totalAlpha}</h3>
@@ -34,7 +28,7 @@ function AlphaPage() {
           <button className="tablinks" onClick={() => setSelectedTab(TABS.TAB2)}>{TABS.TAB2}</button>
           <button className="tablinks" onClick={() => setSelectedTab(TABS.TAB3)}>{TABS.TAB3}</button>
         </div>
-        <TabsContainer ctx={AlphaPageCtx}/>
+        <TabsContainer/>
       </AlphaPageCtx.Provider>
     </>
   );

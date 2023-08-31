@@ -1,15 +1,19 @@
+import { useContext } from 'react'
 import './tab-content.css'
+import { AppContext } from '../App';
 
-function TabContent({ctx, elements, setElements}) {
+function TabContent({elements, setElements}) {
 
-  const {updateTotal, total} = ctx
+  const appContext = useContext(AppContext)
+  const {alpha} = appContext
+  const {setTotalAlpha, totalAlpha} = alpha
 
   const handleCardPressed = (card) => {
     const operation = card.pressed 
-      ? total - card.value 
-      : total + card.value
+      ? totalAlpha - card.value 
+      : totalAlpha + card.value
 
-    updateTotal(operation)
+    setTotalAlpha(operation)
 
     const updatedList = elements.map((item) =>
       item.label === card.label ? { ...item, pressed: !item.pressed } : item

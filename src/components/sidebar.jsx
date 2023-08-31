@@ -9,9 +9,10 @@ const PAGES = {
 
 function Sidebar() {
   const context = useContext(AppContext);
+  const {setSelectedPage} = context
 
   const changeSelectedTab = (e) => {
-    context.updateContextValue(e.target.value)
+    setSelectedPage(e.target.value)
   }
 
   return (
