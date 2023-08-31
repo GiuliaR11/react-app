@@ -4,9 +4,9 @@ import { AppContext } from '../App';
 
 function BetaTabContent({elements, setElements}) {
 
-  const context = useContext(AppContext);
-
-  const {updateBetaTotal, totalBeta} = context
+  const appContext = useContext(AppContext)
+  const {beta} = appContext
+  const {setTotalBeta, totalBeta} = beta
 
   const handleCardPressed = (card) => {
 
@@ -14,7 +14,7 @@ function BetaTabContent({elements, setElements}) {
       ? totalBeta.replace(card.value, '')
       : totalBeta.concat(card.value)
 
-      updateBetaTotal(operation)
+      setTotalBeta(operation)
 
     const updatedList = elements.map((item) =>
       item.label === card.label ? { ...item, pressed: !item.pressed } : item

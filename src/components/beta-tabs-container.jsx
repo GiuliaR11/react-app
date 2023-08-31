@@ -1,93 +1,44 @@
 import './tabs-container.css'
-import TabContent from './tab-content';
 import { useContext } from "react";
-import { useState } from 'react'
 import {TABS} from '../utils/models'
 import { BetaPageCtx } from '../pages/beta-page';
 import BetaTabContent from './beta-tab-content';
-
-const tab1List = [
-  {
-    label: 'A',
-    value: 'A',
-    pressed: false
-  },
-  {
-    label: 'B',
-    value: 'B',
-    pressed: false
-  },
-  {
-    label: 'C',
-    value: 'C',
-    pressed: false
-  }
-]
-
-const tab2List = [
-  {
-    label: 'D',
-    value: 'D',
-    pressed: false
-  },
-  {
-    label: 'E',
-    value: 'E',
-    pressed: false
-  },
-  {
-    label: 'F',
-    value: 'F',
-    pressed: false
-  }
-]
-
-const tab3List = [
-  {
-    label: 'G',
-    value: 'G',
-    pressed: false
-  },
-  {
-    label: 'H',
-    value: 'H',
-    pressed: false
-  },
-  {
-    label: 'I',
-    value: 'I',
-    pressed: false
-  }
-]
-
+import { AppContext } from '../App';
 
 function BetaTabsContainer() {
-  const [tab1Elements, setTab1Elements] = useState(tab1List)
-  const [tab2Elements, setTab2Elements] = useState(tab2List)
-  const [tab3Elements, setTab3Elements] = useState(tab3List)
+  const betaContext = useContext(BetaPageCtx)
+  const appContext = useContext(AppContext)
 
-  const context = useContext(BetaPageCtx)
+  const {selectedTab} = betaContext
 
-  const selectedTab = context.selectedTab
+  const {beta} = appContext
+  const {
+    tab1State, 
+    tab2State, 
+    tab3State, 
+    setBetaTab1List, 
+    setBetaTab2List, 
+    setBetaTab3List
+  } = beta
 
   const getTabElements = (tab) => {
     if (tab === TABS.TAB1)
-      return tab1Elements
+      return tab1State
 
     if (tab === TABS.TAB2)
-      return tab2Elements
+      return tab2State
 
-    return tab3Elements
+    return tab3State
   }
 
   const getTabElementsSetter = (tab) => {
     if (tab === TABS.TAB1)
-      return setTab1Elements
+      return setBetaTab1List
 
     if (tab === TABS.TAB2)
-      return setTab2Elements
+      return setBetaTab2List
 
-    return setTab3Elements
+    return setBetaTab3List
   }
 
   return (
