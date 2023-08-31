@@ -2,16 +2,15 @@ import './tab-content.css'
 
 function TabContent({ctx, elements, setElements}) {
 
-  const updateTotal = (value) => {
-    ctx.updateTotal(value)
-  }
-  
+  const {updateTotal, total} = ctx
+
   const handleCardPressed = (card) => {
-    if (!card.pressed) {
-      updateTotal(ctx.total + card.value)
-    } else {
-      updateTotal(ctx.total - card.value)
-    }
+    const operation = card.pressed 
+      ? total - card.value 
+      : total + card.value
+
+    updateTotal(operation)
+
     const updatedList = elements.map((item) =>
       item.label === card.label ? { ...item, pressed: !item.pressed } : item
     )

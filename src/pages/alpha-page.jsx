@@ -13,10 +13,7 @@ function AlphaPage() {
 
   const [selectedTab, setSelectedTab] = useState(TABS.TAB1)
 
-  const totalAlpha = appContext.totalAlpha
-  const updateAlphaTotal = (value) => {
-    appContext.updateAlphaTotal(value)
-  }
+  const {totalAlpha, updateAlphaTotal} = appContext
 
   const ctxToProvide = {
     total: totalAlpha,

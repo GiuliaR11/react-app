@@ -11,12 +11,9 @@ export const BetaPageCtx = createContext();
 function BetaPage() {
   const appContext = useContext(AppContext);
 
-  const [selectedTab, setSelectedTab] = useState(TABS.TAB1)
+  const {updateBetaTotal, totalBeta} = appContext;
 
-  const totalBeta = appContext.totalBeta
-  const updateBetaTotal = (value) => {
-    appContext.updateBetaTotal(value)
-  }
+  const [selectedTab, setSelectedTab] = useState(TABS.TAB1)
 
   const ctxToProvide = {
     total: totalBeta,

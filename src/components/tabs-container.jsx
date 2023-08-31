@@ -2,7 +2,6 @@ import './tabs-container.css'
 import TabContent from './tab-content';
 import { useContext } from "react";
 import { useState } from 'react'
-import { AlphaPageCtx } from '../pages/alpha-page'
 import {TABS} from '../utils/models'
 
 const tab1List = [
